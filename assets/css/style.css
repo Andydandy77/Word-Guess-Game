@@ -1,0 +1,201 @@
+@font-face {
+    font-family: '1960s-Hippie';
+    src:url('1960s-Hippie.ttf.woff') format('woff'),
+        url('1960s-Hippie.ttf.svg#1960s-Hippie') format('svg'),
+        url('1960s-Hippie.ttf.eot'),
+        url('1960s-Hippie.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+
+    font-family: '1960s-Hippie';
+    background-image: url(../images/flower.jpg);
+
+}
+
+h1 {
+
+    text-align: center;
+    margin-top:25px;
+    font-size:300%;
+    color: purple;
+    background-color: orange;
+    border: solid;
+    border-width: 10px;
+    border-color: black;
+
+}
+
+h2 {
+    width: 100%;
+    margin:px;
+    font-size:200%;
+    color: black;
+}
+
+.holder {
+    padding: 20px;
+    margin: 0px;
+    border: solid;
+    background-color: powderblue;
+    color:black;
+    
+    border-width:10px;
+    height: 650px;
+    
+    
+}
+
+#bandPic {
+
+    margin: 0px;
+    height: 40%;
+    width: auto;
+}
+
+#gameInfo {
+    color:white;
+    text-align: center;
+
+}
+
+#displayedWord {
+
+    border: solid;
+    border-width: 5px;
+}
+
+#jimi {
+
+    width: 0px;
+    margin: 100px;
+    
+}
+
+#doors {
+
+    width:0px;
+    margin: 100px;
+
+}
+
+#jeff {
+
+    width:0px;
+    margin: 100px;
+
+}
+
+#dead {
+
+    width:0px;
+    margin: 100px;
+
+
+}
+
+#beatles {
+
+    width:0px;
+    margin: 100px;
+
+
+}
+
+#santana {
+    width:0px;
+    margin: 100px;
+
+
+}
+
+#beach {
+    width:0px;
+    margin: 100px;
+
+}
+
+#pink {
+    width:0px;
+    margin: 100px;
+
+
+}
+
+#step {
+    width:0px;
+    margin: 100px;
+
+}
+
+#stones {
+    width:0px;
+    margin: 100px;
+
+}
+
+#animals {
+    width:0px;
+    margin: 100px;
+
+
+}
+
+#yard {
+    width:0px;
+    margin: 100px;
+
+
+}
+
+#who {
+    width:0px;
+    margin: 100px;
+
+}
+
+#simon {
+
+    width:0px;
+    margin: 100px;
+
+}
+
+#bob {
+    width:0px;
+    margin: 100px;
+
+}
+
+#ccr {
+    width:0px;
+    margin: 100px;
+
+}
+
+#bowie {
+
+    width:0px;
+    margin: 100px;
+}
+
+#led {
+
+    width:0px;
+    margin: 100px;
+}
+
+#playAgain {
+    margin-top: 50px;
+    background-color:purple;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: orange;
+    font-size: 24px;
+    display: none;
+
+}
