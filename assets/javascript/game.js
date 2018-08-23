@@ -1,9 +1,10 @@
 // object code for game
     var game = {
 
-        bandNames: ["The Doors", "Jefferson Airplane", "Jimi Hendrix", "The Grateful Dead", 
+         bandNames: ["The Doors", "Jefferson Airplane", "Jimi Hendrix", "The Grateful Dead", 
                    "The Beatles", "Santana", "The Beach Boys", "Led Zeppelin", "Pink Floyd", "Steppenwolf", "The Rolling Stones", 
-                   "The Animals", "The Yardbirds", "The Who", "Simon and Garfunkel", "Bob Dylan", "Creedence Clearwater Revival", "David Bowie", ],
+                   "The Animals", "The Yardbirds", "The Who", "Simon and Garfunkel", "Bob Dylan", "Creedence Clearwater Revival", "David Bowie"],
+        
         bandName: [],
         bandNameString: "",
         displayedWord: [],
@@ -20,7 +21,8 @@
         // updates value to displayedWord, resets guessedLetters and guessesLeft
         generateGame : function() {
 
-            console.log(this.bandNames);
+            //console.log(this.bandNames);
+            
             
             
             $("#pic").remove();
@@ -45,7 +47,7 @@
             for (var i = 0; i < this.bandNameString.length; i++) {
                 this.bandName.push(this.bandNameString.charAt(i));
             }
-            console.log(this.bandNameString);
+       // console.log(this.bandNameString);
 
 
 
@@ -92,7 +94,7 @@
                 }
 
                 this.displayedWordString = this.displayedWord.toString().replace(this.regex, ' ');
-                console.log(this.displayedWordString);
+                // console.log(this.displayedWordString);
                 document.getElementById("displayedWord").innerHTML = this.displayedWordString;
                 this.updateGuessedLetters(letter);
                 document.getElementById("letters").innerHTML = this.guessedLetters;
@@ -145,7 +147,9 @@
 
     alert("New Game!")
     game.generateGame();
-       
+
+
+        var audio = new Audio("");       
             document.onkeyup = function(event) {
 
                 game.guess(event.key.toLowerCase());
@@ -215,8 +219,8 @@
                         bandPhoto.attr("id", "pic");
                         $("#bandPic").append(bandPhoto);
 
-                        var audio = new Audio("assets/songs/" + song);
-                        console.log(audio);
+                        audio = new Audio("assets/songs/" + song);
+                        //console.log(audio.paused);
                         audio.play();
 
                         $("#playAgain").css("display", "block");
@@ -224,12 +228,25 @@
 
                         $("#playAgain").on("click", function() {
 
+                            // console.log(game.bandNames);
                             if(game.gameOver) {
-                                if(game.bandNames == null) {
+                                // console.log(game.bandNames);
+                                if(game.bandNames.length === 0) {
                                     alert("You guessed every single band! Congratulations!");
                                 } else {
-                                    audio.pause();
+                                    // console.log(audio.paused);
+                                    while(!audio.paused) {
+                                        // console.log("not paused yet");
+                                        audio.pause();
+                                        
+                                    }
+                                    // if(audio.paused) {
+                                    //     console.log("It's paused");
+                                    // }
+                                    
                                     game.generateGame();
+                                    // console.log(audio);
+                                    
 
                                 }
                             } 
