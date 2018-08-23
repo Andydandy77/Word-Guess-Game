@@ -22,6 +22,7 @@
 
             console.log(this.bandNames);
             
+            
             $("#pic").remove();
             $("#playAgain").css("display" ,"none");
             this.guessesLeft = 15;
@@ -152,48 +153,71 @@
                         game.displayedWordString = game.bandNameString;
                         document.getElementById("displayedWord").innerHTML = game.displayedWordString;
                         var photo = "";
+                        var song = "";
                         var result = game.displayedWordString;
                         if(result === "Jimi Hendrix") {
                             photo = "jimi";
+                            song = "jimi.mp3"
                         } else if (result === "The Doors") {
                             photo = "doors"
+                            song = "riders.mp3"
                         } else if (result === "Jefferson Airplane") {
                             photo = "jeff"
+                            song = "jeff.mp3"
                         } else if (result === "The Grateful Dead") {
                             photo = "dead"
+                            song = "dead.mp3"
                         } else if (result === "The Beatles") {
                             photo = "beatles"
+                            song = "beatles.mp3"
                         } else if (result === "Santana") {
                             photo = "santana"
+                            song = "santana.mp3"
                         } else if (result === "The Beach Boys") {
                             photo = "beach"
+                            song = "beach.mp3"
                         } else if (result === "Pink Floyd") {
                             photo = "pink"
+                            song = "pink.mp3"
                         } else if (result === "Steppenwolf") {
                             photo = "step"
+                            song = "step.mp3"
                         } else if (result === "The Rolling Stones") {
                             photo = "stones"
+                            song = "stones.mp3"
                         } else if (result === "The Animals") {
                             photo = "animals"
+                            song = "animals.mp3"
                         } else if (result === "The Yardbirds") {
                             photo = "yard"
+                            song = "yard.mp3"
                         } else if (result === "The Who") {
                             photo = "who"
+                            song = "who.mp3"
                         } else if (result === "Simon and Garfunkel") {
                             photo = "simon"
+                            song = "simon.mp3"
                         } else if (result === "Bob Dylan") {
                             photo = "bob"
+                            song = "bob.mp3"
                         } else if (result === "Creedence Clearwater Revival") {
                             photo = "ccr"
+                            song = "ccr.mp3"
                         } else if (result === "David Bowie") {
                             photo = "bowie"
+                            song = "bowie.mp3"
                         } else if (result === "Led Zeppelin") {
                             photo = "led"
+                            song = "led.mp3"
                         }
                         var bandPhoto = $("<img>");
                         bandPhoto.attr("src" , "assets/images/" + photo + ".jpg");
                         bandPhoto.attr("id", "pic");
                         $("#bandPic").append(bandPhoto);
+
+                        var audio = new Audio("assets/songs/" + song);
+                        console.log(audio);
+                        audio.play();
 
                         $("#playAgain").css("display", "block");
 
@@ -204,7 +228,9 @@
                                 if(game.bandNames == null) {
                                     alert("You guessed every single band! Congratulations!");
                                 } else {
+                                    audio.pause();
                                     game.generateGame();
+
                                 }
                             } 
 
