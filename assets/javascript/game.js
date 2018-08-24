@@ -79,42 +79,47 @@
 
         // Takes in the onkey event key
         guess : function(letter) {
+            var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-            // Checks whether the key pressed matches
-            if(!this.guessedLetters.includes(letter)) {
-                if(this.bandName.includes(letter.toLowerCase()) || this.bandName.includes(letter.toUpperCase())) {
-                    for(var i = 0; i < this.bandName.length; i++) {
-                        if(letter === this.bandName[i].toLowerCase()) {
-                            this.displayedWord[i] = this.bandName[i];
-                            this.revealedLetters++;
+            if (!alphabet.includes(letter)) {
+                alert("Choose a valid letter!");
+            } else {
+                // Checks whether the key pressed matches
+                if(!this.guessedLetters.includes(letter)) {
+                    if(this.bandName.includes(letter.toLowerCase()) || this.bandName.includes(letter.toUpperCase())) {
+                        for(var i = 0; i < this.bandName.length; i++) {
+                            if(letter === this.bandName[i].toLowerCase()) {
+                                this.displayedWord[i] = this.bandName[i];
+                                this.revealedLetters++;
+                            }
+
                         }
 
                     }
 
-                }
+                    this.displayedWordString = this.displayedWord.toString().replace(this.regex, ' ');
+                    // console.log(this.displayedWordString);
+                    document.getElementById("displayedWord").innerHTML = this.displayedWordString;
+                    this.updateGuessedLetters(letter);
+                    document.getElementById("letters").innerHTML = this.guessedLetters;
+                    this.updateNumberGuesses();
+                    document.getElementById("guesses").innerHTML = this.guessesLeft;
 
-                this.displayedWordString = this.displayedWord.toString().replace(this.regex, ' ');
-                // console.log(this.displayedWordString);
-                document.getElementById("displayedWord").innerHTML = this.displayedWordString;
-                this.updateGuessedLetters(letter);
-                document.getElementById("letters").innerHTML = this.guessedLetters;
-                this.updateNumberGuesses();
-                document.getElementById("guesses").innerHTML = this.guessesLeft;
-
-                // Checks whether the user has guessed all the correct letters, and updates the number of wins
-                if(this.revealedLetters === this.bandName.length){
-                    this.updateNumberWins();
-                   
-                    document.getElementById("wins").innerHTML = this.wins;
-                    this.gameOver = true;
+                    // Checks whether the user has guessed all the correct letters, and updates the number of wins
+                    if(this.revealedLetters === this.bandName.length){
+                        this.updateNumberWins();
                     
-                } else if (this.guessesLeft === 0) {
-                    this.gameOver = true;
-                    this.bandNames.push(this.bandNameString);
-                }
+                        document.getElementById("wins").innerHTML = this.wins;
+                        this.gameOver = true;
+                        
+                    } else if (this.guessesLeft === 0) {
+                        this.gameOver = true;
+                        this.bandNames.push(this.bandNameString);
+                    }
 
-            } else {
-                alert("You already guessed that letter! Try Again!");
+                } else {
+                    alert("You already guessed that letter! Try Again!");
+                }
             }
         },
 
@@ -140,6 +145,7 @@
         updateNumberWins : function() {
             this.wins++;
         }
+    
 
     
     };
